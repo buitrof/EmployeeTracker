@@ -1,4 +1,5 @@
 const inquirer = require('inquirer')
+const db = require('./config/db.js')
 
 inquirer.prompt({
   type: 'list',
@@ -25,6 +26,7 @@ inquirer.prompt({
       console.log('employee added')
       break
     case 'View departments':
+      db.query('SELECT * FROM ')
       console.log('department viewed')
       break
     case 'View roles':
