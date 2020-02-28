@@ -34,10 +34,20 @@ inquirer.prompt({
       })
       break
     case 'View roles':
-      console.log('roles viewed')
+      db.query('SELECT * FROM role', (err, role) => {
+        if (err) console.log(err)
+        for (let i = 0; i < role.length; i++) {
+          console.log(role[i].title)
+        }
+      })
       break 
     case 'View employees':
-      console.log('employees viewed')
+      db.query('SELECT * FROM employee', (err, emp) => {
+        if (err) console.log(err)
+        for (let i = 0; i < emp.length; i++) {
+          console.log(emp[i].first_name + emp[i].last_name)
+        }
+      })
       break
     case 'Update employee role':
       console.log('employee updated')
