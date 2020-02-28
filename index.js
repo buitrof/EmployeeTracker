@@ -26,8 +26,12 @@ inquirer.prompt({
       console.log('employee added')
       break
     case 'View departments':
-      db.query('SELECT * FROM ')
-      console.log('department viewed')
+      db.query('SELECT * FROM department', (err, dep) => {
+        if (err) console.log(err)
+        for (let i = 0; i < dep.length; i++) {
+          console.log(dep[i].name)
+        }
+      })
       break
     case 'View roles':
       console.log('roles viewed')
